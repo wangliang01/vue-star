@@ -1,6 +1,6 @@
 {
   "name": "vue3-star",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": false,
   "module": "src/components/index.js", 
   "main": "src/components/index.js", 
