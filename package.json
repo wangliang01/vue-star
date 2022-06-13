@@ -1,12 +1,18 @@
 {
   "name": "vue3-star",
-  "version": "0.1.0",
+  "version": "0.1.9",
   "private": false,
+  "module": "src/components/index.js", 
+  "main": "src/components/index.js", 
+  "files": [ 
+    "src/**"
+  ], 
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name vue-star src/components/Star.vue",
+    "build": "vue-cli-service build --target lib --name vue-star src/components/index.js",
     "lint": "vue-cli-service lint"
   },
+  "license": "MIT",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.2.37"

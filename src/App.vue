@@ -1,5 +1,5 @@
 <template>
-  <Star :score="score" size="24" active-color="green" default-color="#aaa" fill theme="love" @change="handleChange"/>
+  <Star :score="score" size="24" active-color="green" default-color="#aaa" fill theme="star" @change="handleChange"/>
 </template>
 
 <script lang="ts" setup>
