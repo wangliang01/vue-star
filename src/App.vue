@@ -1,18 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <Star :score="score" size="24" active-color="green" default-color="#aaa" fill theme="love" @change="handleChange"/>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts" setup>
+import Star from './components/Star.vue'
+import { ref } from 'vue'
+const score = ref(4.5)
+const handleChange = (value: number) => {
+  console.log('value', value)
+  score.value = value
+}
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-})
 </script>
 
 <style lang="scss">

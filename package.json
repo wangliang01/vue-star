@@ -1,15 +1,15 @@
 {
-  "name": "vue-star",
+  "name": "vue3-star",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name vue-star src/components/Star.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
