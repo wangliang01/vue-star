@@ -1,6 +1,12 @@
 <template>
   <div class="star-list">
-    <span v-for="(star, index) in stars" :class="`icon-${star}`" :key="index" class="iconfont" @click="handleClickStar(index)"></span>
+    <span
+      v-for="(star, index) in stars"
+      :class="`icon-${star}`"
+      :key="index"
+      class="iconfont"
+      @click="handleClickStar(index)"
+    ></span>
   </div>
 </template>
 
@@ -27,7 +33,7 @@ const props = defineProps({
   },
   fill: {
     type: Boolean,
-    default: false
+    default: true
   },
   activeColor: {
     type: String,
@@ -35,7 +41,7 @@ const props = defineProps({
   },
   defaultColor: {
     type: String,
-    default: '#000'
+    default: '#999'
   },
   gap: {
     type: [String, Number],
@@ -45,7 +51,8 @@ const props = defineProps({
 
 const emit = defineEmits(['change'])
 
-const { stars, activeColor, defaultColor, size, gap, handleClickStar } = useStar()
+const { stars, activeColor, defaultColor, size, gap, handleClickStar } =
+  useStar()
 
 // 定义一个use函数
 function useStar () {
@@ -112,7 +119,7 @@ function useStar () {
 </script>
 
 <style lang="scss" scoped>
-@import url('../assets/fonts/iconfont.css');
+@import url('./fonts/iconfont.css');
 .star-list {
   display: inline-flex;
   overflow: hidden;
@@ -120,7 +127,7 @@ function useStar () {
 .iconfont {
   margin-right: v-bind(gap);
   cursor: pointer;
-  &:last-child{
+  &:last-child {
     margin-right: 0;
   }
 }
@@ -138,7 +145,7 @@ function useStar () {
   color: v-bind(defaultColor);
   &-half {
     font-size: v-bind(size);
-    color: v-bind(defaultColor);
+    color: v-bind(activeColor);
   }
   &.active {
     color: v-bind(activeColor);
@@ -157,11 +164,10 @@ function useStar () {
   color: v-bind(defaultColor);
   &-half {
     font-size: v-bind(size);
-    color: v-bind(defaultColor);
+    color: v-bind(activeColor);
   }
   &.active {
     color: v-bind(activeColor);
   }
 }
-
 </style>

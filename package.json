@@ -1,24 +1,37 @@
 {
   "name": "vue3-star",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "private": false,
-  "module": "src/components/index.js", 
-  "main": "src/components/index.js", 
-  "types": "types/index.d.ts",
-  "files": [ 
-    "src/**"
-  ], 
+  "description": "基于Vue3开发的一个star-ratting组件库",
+  "main": "lib/index.common.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "keywords": [
+    "vue3 star-ratting"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "wangliang01",
+    "email": "139283057@qq.com",
+    "url": "https://github.com/wangliang01/vue-star"
+  },
+  "files": [
+    "lib/**"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name vue-star src/components/index.js",
+    "build": "yarn build:clean && yarn build:lib && yarn build:esm-bundle && rimraf lib/demo.html",
+    "build:clean": "rimraf lib",
+    "build:lib": "vue-cli-service build --target lib --name index --dest lib packages/index.ts",
+    "build:esm-bundle": "rollup --config ./build/rollup.config.js",
     "lint": "vue-cli-service lint"
   },
-  "license": "MIT",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.13",
@@ -35,17 +48,13 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0",
     "lint-staged": "^9.5.0",
+    "rollup": "^2.75.6",
+    "rollup-plugin-css-porter": "^1.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~4.1.5"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
   }
 }
